@@ -1,7 +1,8 @@
 set project [lindex $argv $argc-1]
 load $project.mag
 select top cell
-extract all
-antennacheck debug
-antennacheck
+drc euclidean on
+drc style drc(full)
+drc check
+set drcresult [drc listall why]
 quit -noprompt
